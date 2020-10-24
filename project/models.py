@@ -1,5 +1,4 @@
 from django.db import models
-from datetime import dt
 from django.contrib.auth.models import User
 from django.urls import reverse 
 
@@ -10,6 +9,7 @@ class Projects(models.Model):
   repo_link = models.CharField(max_length=200)
   live_link = models.CharField(max_length=500)
   user = models.ForeignKey(User,on_delete=models.CASCADE,default='1')
+  post_date =  models.DateField(auto_now_add=True)
   
 class Ratings(models.Model):
   project = models.ForeignKey(Projects,on_delete=models.CASCADE,default='1')
