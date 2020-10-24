@@ -14,3 +14,8 @@ def register(request):
     form = UserRegistrationForm()
     
   return render(request,'user/register.html',{"form":form})
+
+def profile(request):
+  if request.method == 'POST':
+    
+  return (request)
