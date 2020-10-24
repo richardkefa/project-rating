@@ -11,5 +11,8 @@ class Projects(models.Model):
   live_link = models.CharField(max_length=500)
   user = models.ForeignKey(User,on_delete=models.CASCADE,default='1')
   
-
-
+class Ratings(models.Model):
+  project = models.ForeignKey(Projects,on_delete=models.CASCADE,default='1')
+  design = models.IntegerField(default=0)
+  usability = models.IntegerField(default=0)
+  content = models.IntegerField(default=0)
