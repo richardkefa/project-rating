@@ -1,0 +1,58 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="container">
+
+  <div class="row">
+    {% if projects%}
+      <h2>Found {{ projects|length }} of searched term </h2>
+    {% else %}
+      <h2> Found 0 projects for the search term {{message}}</h2>
+    {% endif %}
+
+  </div>
+
+  <div class="row">
+
+  {% if projects %}
+  {% for project in projects %}
+
+  <div class="col-md-6">
+  <!-- Card Light -->
+  <div class="card">
+  
+   <!-- Card image -->
+   <div class="view overlay">
+    <a href="{{project.live_link}}">
+      <img class="card-img-top"
+      src="{{project.landing_page_image.url}}" alt="Card image cap">
+    </a>
+     <a>
+       <div class="mask rgba-white-slight"></div>
+     </a>
+   </div>
+  
+   <!-- Card content -->
+   <div class="card-body">
+  
+     <!-- Social shares button -->
+     <a class="activator waves-effect waves-light mr-4"><i class="fas fa-share-alt"></i></a>
+     <!-- Title -->
+     <h4 class="card-title">{{project.ptoject_title}}</h4>
+     <hr>
+     <!-- Text -->
+     <p class="card-text">{{project.description}}</p>
+     <!-- Link -->
+     <a href="{% url 'project_detail' project.pk %}" class="black-text d-flex justify-content-end">
+       <h5>Project Details<i class="fas fa-angle-double-right"></i></h5>
+     </a>
+  
+   </div>
+  
+  </div>
+  <!-- Card Light -->
+  </div>
+  {% endfor %}
+  {% endif %}
+  </div>
+</div>
+{% endblock %}
