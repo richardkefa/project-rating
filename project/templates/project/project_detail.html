@@ -3,8 +3,6 @@
 {% block content %}
 
 <div class="container-fluid">
-  {% if projects %}
-    {% for project in projects %}
 <!-- Card Light -->
 <div class="card">
 
@@ -30,22 +28,10 @@
    <!-- Text -->
    <p class="card-text">{{project.description}}</p>
    <!-- Link -->
-   <a href="{% url 'project_detail' project.pk %}" class="black-text d-flex justify-content-end">
-     <h5>Project Details<i class="fas fa-angle-double-right"></i></h5>
-   </a>
 
  </div>
 
 </div>
 <!-- Card Light -->
-{% endfor %}
-{% else %}
-<div class="row">
-  <div class="col-md-12">
-    <h3 class="text-center">No Projects posted yet</h3>
-  </div>
-</div>
-{% endif %}
-</div>
 
 {% endblock %}

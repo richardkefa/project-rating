@@ -8,4 +8,14 @@ class PostListView(ListView):
   model = Projects
   template_name = 'project/home.html'
   context_object_name = 'projects'
+  ordering = ['-post_date']
   
+class PostDetailView(DetailView):
+  model = Projects
+  template_name = 'project/project_detail.html'
+  context_object_name = 'project'
+  
+class PostCreateView(CreateView):
+  model = Projects
+  
+
