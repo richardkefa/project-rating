@@ -38,3 +38,11 @@ class PostUpdateView(UserPassesTestMixin,UpdateView):
     return False
 
   
+class PostDeleteView(UserPassesTestMixin,DeleteView):
+  model = Projects
+  success_url = '/'
+  def test_func(self):
+    project = self.get_object()
+    if self.request.user == project.user:
+      return True
+    return False
