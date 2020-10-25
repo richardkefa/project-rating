@@ -46,3 +46,16 @@ class PostDeleteView(UserPassesTestMixin,DeleteView):
     if self.request.user == project.user:
       return True
     return False
+  
+def search_results(request):
+  
+  if 'project' in request.GET and request.GET["project"]:
+    search_term = request.GET.get("project")
+    searched_project = Projects.search_by_titles(search_term)
+    message = f"{search_term}"
+    
+    return render(request, 'project/search.html',{"message":message,"projects":searched_articles})
+  else:
+    
+    message ="You havent serched any term"
+    return render(request, 'project/search.html',{"message":message}) 

@@ -13,6 +13,11 @@ class Projects(models.Model):
   
   def __str__(self):
     return self.project_title
+  @classmethod
+  def search_by_titles(cls,search):
+    
+    projects = cls.objects.filter(project_title__icontains=search_term)
+    return projects
   
   def get_absolute_url(self):
     return reverse('project_detail',kwargs={'pk':self.pk})

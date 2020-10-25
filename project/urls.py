@@ -8,6 +8,8 @@ urlpatterns = [
   url(r'^project/new/$',PostCreateView.as_view(),name='project_create'),
   url(r'^project/(?P<pk>\d+)/update/$',PostUpdateView.as_view(),name='project_update'),
   url(r'^project/(?P<pk>\d+)/delete/$',PostDeleteView.as_view(),name='project_delete'),
+  url(r'^search/', views.search_results, name='search_results'),
+
 
   
 ]
