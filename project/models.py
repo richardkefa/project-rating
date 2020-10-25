@@ -11,6 +11,12 @@ class Projects(models.Model):
   user = models.ForeignKey(User,on_delete=models.CASCADE,default='1')
   post_date =  models.DateField(auto_now_add=True)
   
+  def __str__(self):
+    return self.project_title
+  
+  def get_absolute_url(self):
+    return reverse('project_detail',kwargs={'pk':self.pk})
+  
 class Ratings(models.Model):
   project = models.ForeignKey(Projects,on_delete=models.CASCADE,default='1')
   design = models.IntegerField(default=0)
