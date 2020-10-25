@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <form method="POST" class="card">
+        {% csrf_token %}
+        <fieldset class="form-group">
+          <legend class="border-bottom mb-4">Delete Project</legend>
+          <h3>Are you sure you want to delete "{{object.project_title}}"</h3>
+        </fieldset>
+        <div class="form-group">
+          <button class="btn btn-outline-danger" type="submit">Yes, Delete</button>
+          <a href="{% url 'project_detail' object.pk %}" class="btn btn-outline-secondary">Cancel</a>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+{% endblock %}
