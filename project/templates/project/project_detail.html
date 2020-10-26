@@ -27,24 +27,30 @@
           <!-- Text -->
           <p class="card-text">{{project.description}}</p>
           <p>{{ratings.comment}}</p>
-          <!-- Link -->
           <a href="{% url 'project_rating' project.pk %}"
             class="white-text justify-content-end btn btn-default">Rate</a>
+        {%if project.user == user %}
+        <a class="btn-danger btn-sm mt-1 mb-1" href="{% url 'project_delete' project.pk %}">Delete Post</a>
+          <!-- Link -->
+          
+        {% endif %}
+            <p class="text-muted"><small>Posted by</small> {{project.user}} on {{project.post_date|date:"F d, Y"}}</p>
+
         </div>
 
       </div>
     </div>
     <div class="col-md-6">
       <!-- Card -->
-<div class="card testimonial-card">
+<div class="card testimonial-card " id="project_card">
 
   <!-- Background color -->
   <div class="card-up indigo lighten-1"></div>
 
   <!-- Avatar -->
   <div class="avatar mx-auto white">
-    <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20%2810%29.jpg" class="rounded-circle"
-      alt="woman avatar">
+    <img src="{{user.profiles.profile_pic.url}}" class=" img-fluid"
+      alt="woman avatar" width="150px">
   </div>
 
   <!-- Content -->
@@ -57,15 +63,13 @@
       <h5>Bio</h5>
       <p>{{user.profiles.bio}}</p>
       <h5 class="text-left">Contact info</h5>
-      <ul>
-        <li><span><img src="" alt=""></span></li>
-        <li>{{user.contact_info.tel_number}}</li>
-        <li>{{user.contact_info.facebook_u}}</li>
-        <li>{{user.contact_info.tel_twiter_u}}</li>
-        <li>{{user.contact_info.instagram_u}}</li>
-        <li>{{user.contact_info.linkedin_u}}</li>
-        <h5>Collaborate</h5>
-        <li>{{user.contact_info.github_u}}</li>
+      <ul style="list-style: none;">
+        <li>Email: {{user.email}}</li>
+        <li>Tel No.: {{user.contact_info.tel_number}}</li>
+        <li>Facebook: {{user.contact_info.facebook_u}}</li>
+        <li>Twiter: {{user.contact_info.tel_twiter_u}}</li>
+        <li>Instagram: {{user.contact_info.instagram_u}}</li>
+        <li>Linkedin: {{user.contact_info.linkedin_u}}</li>
       </ul>
 
     </p>

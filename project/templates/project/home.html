@@ -4,6 +4,7 @@
 
 <div class="container-fluid">
   {% if projects %}
+  <h1 class="text-center default-text">Projects</h1>
     <div class="row">
       {% for project in projects %}
         <div class="col-md-3">
@@ -27,10 +28,10 @@
           <!-- Social shares button -->
           <a class="activator waves-effect waves-light mr-4"><i class="fas fa-share-alt"></i></a>
           <!-- Title -->
-          <h4 class="card-title">{{project.project_title}}</h4>
+          <h4 class="card-title">{{project.project_title|truncatechars:15}}</h4>
           <hr>
           <!-- Text -->
-          <p class="card-text">{{project.description}}</p>
+          <p class="card-text">{{project.description|truncatechars:40}}</p>
           <!-- Link -->
           <a href="{% url 'project_detail' project.pk %}" class="white-text justify-content-end btn btn-default">
             Project Details
