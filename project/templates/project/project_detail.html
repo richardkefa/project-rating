@@ -1,36 +1,40 @@
 {%extends 'base.html'%}
-
 {% block content %}
-
 <div class="container-fluid">
-<!-- Card Light -->
+<div class="row">
+  <div class="col-md-12">
+    <!-- Card Light -->
 <div class="card">
 
- <!-- Card image -->
- <div class="view overlay">
-  <a href="{{project.live_link}}">
-    <img class="card-img-top"
-    src="{{project.landing_page_image.url}}" alt="Card image cap">
-  </a>
-   <a>
-     <div class="mask rgba-white-slight"></div>
+  <!-- Card image -->
+  <div class="view overlay">
+   <a href="{{project.live_link}}">
+     <img class="card-img-top"
+     src="{{project.landing_page_image.url}}" alt="Card image cap">
    </a>
+    <a>
+      <div class="mask rgba-white-slight"></div>
+    </a>
+  </div>
+ 
+  <!-- Card content -->
+  <div class="card-body">
+ 
+    <!-- Social shares button -->
+    <a class="activator waves-effect waves-light mr-4"><i class="fas fa-share-alt"></i></a>
+    <!-- Title -->
+    <h4 class="card-title">{{project.project_title}}</h4>
+    <hr>
+    <!-- Text -->
+    <p class="card-text">{{project.description}}</p>
+    <p>{{ratings.comment}}</p>
+    <!-- Link -->
+    <a href="{% url 'project_rating' project.pk %}">Rate</a>
+  </div>
+ 
  </div>
-
- <!-- Card content -->
- <div class="card-body">
-
-   <!-- Social shares button -->
-   <a class="activator waves-effect waves-light mr-4"><i class="fas fa-share-alt"></i></a>
-   <!-- Title -->
-   <h4 class="card-title">{{project.ptoject_title}}</h4>
-   <hr>
-   <!-- Text -->
-   <p class="card-text">{{project.description}}</p>
-   <!-- Link -->
-
- </div>
-
+  </div>
+</div>
 </div>
 <!-- Card Light -->
 

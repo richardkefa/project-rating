@@ -3,10 +3,10 @@
 <div class="container">
 
   <div class="row">
-    {% if projects%}
+    {% if projects %}
       <h2>Found {{ projects|length }} of searched term </h2>
     {% else %}
-      <h2> Found 0 projects for the search term {{message}}</h2>
+      <h2> Found 0 projects for the search term</h2>
     {% endif %}
 
   </div>
@@ -37,7 +37,7 @@
      <!-- Social shares button -->
      <a class="activator waves-effect waves-light mr-4"><i class="fas fa-share-alt"></i></a>
      <!-- Title -->
-     <h4 class="card-title">{{project.ptoject_title}}</h4>
+     <h4 class="card-title">{{project.project_title}}</h4>
      <hr>
      <!-- Text -->
      <p class="card-text">{{project.description}}</p>

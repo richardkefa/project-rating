@@ -1,8 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse,Http404
 from .models import Projects,Ratings
 from django.views.generic import ListView,CreateView,UpdateView,DetailView,DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
+from .forms import RatingsForm
 
 class PostListView(ListView):
   model = Projects
@@ -54,8 +55,10 @@ def search_results(request):
     searched_project = Projects.search_by_titles(search_term)
     message = f"{search_term}"
     
-    return render(request, 'project/search.html',{"message":message,"projects":searched_articles})
+    return render(request, 'project/search.html',{"message":message,"projects":searched_project})
   else:
     
     message ="You havent serched any term"
     return render(request, 'project/search.html',{"message":message}) 
+  
+  
