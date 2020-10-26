@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,7 +44,10 @@ INSTALLED_APPS = [
     'project.apps.ProjectConfig',
     'user.apps.UserConfig',
     'bootstrap4',
-    'crispy_forms'
+    'crispy_forms',
+    'cloudinary',
+    'rest_framework'
+    
     
 ]
 
@@ -139,3 +145,8 @@ LOGIN_URL = 'login'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+cloudinary.config( 
+  cloud_name = "richardkefa", 
+  api_key = "999311661355653", 
+  api_secret = "LIOoFqLq9IwSIgtUinTjK8wnYjc" 
+)

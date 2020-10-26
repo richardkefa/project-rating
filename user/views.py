@@ -1,6 +1,10 @@
 from django.shortcuts import render,redirect
 from django.contrib import messages
 from .forms import UserRegistrationForm,UserUpdateForm,ProfileUpdateForm,ContactUpdateForm
+from cloudinary.models import CloudinaryField
+from rest_framework import generics
+from .models import Profiles,Contact_info
+from .serializers import ProfileSerializer,ContactSerializer
 
 def register(request):
   if request.method == 'POST':
@@ -39,3 +43,18 @@ def profile(request):
   }
   
   return render(request,'user/profile.html',context)
+
+
+class ListContactView(generics.ListAPIView):
+  """
+  Provides a get method
+  """
+  queryset = Contact_info.objects.all()
+  serializer_class = ContactSerializer
+  
+class ListProfileView(generics.ListAPIView):
+  """
+  Provides a get method
+  """
+  queryset = Profiles.objects.all()
+  serializer_class = Profiles

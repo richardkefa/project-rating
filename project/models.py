@@ -1,10 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse 
+from cloudinary.models import CloudinaryField
+
 
 class Projects(models.Model):
   project_title = models.CharField(max_length=100)
-  landing_page_image = models.ImageField(upload_to='images/')
+  landing_page_image = CloudinaryField('image')
   description = models.TextField()
   repo_link = models.CharField(max_length=200)
   live_link = models.CharField(max_length=500)

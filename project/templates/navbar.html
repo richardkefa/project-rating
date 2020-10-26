@@ -10,7 +10,7 @@
 <body>
   <div class="container-fluid">
      <!--Navbar -->
-<nav class="mb-1 navbar navbar-expand-lg navbar-light secondary-color lighten-1">
+<nav id="nav" class="mb-1 navbar navbar-expand-lg navbar-dark lighten-1">
   <a class="navbar-brand" href="{% url 'home' %}">Project Rating</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-555"
     aria-controls="navbarSupportedContent-555" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,29 +20,18 @@
 
     {% if user.is_authenticated %}
 
-    <ul class="navbar-nav mr-auto ">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item">
         <a class="nav-item nav-link" href="{% url 'project_create' %}">New Post</a>
       </li>
-      <li class="nav-item avatar dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
-          <img src="{{user.profiles.profile_pic.url}}" class="rounded-circle z-depth-0 img-fluid"
-            alt="avatar image" width="50px">
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary"
-          aria-labelledby="navbarDropdownMenuLink-55">
-          <a class="nav-item nav-link dropdown-item" href="{% url 'profile' %}">Profile</a>
-          <a class="nav-item nav-link dropdown-item" href="{% url 'logout' %}">Logout</a>
-        </div>
-      </li>
+      
     </ul>
     <div class="navbar-right">
 
       <form class="navbar-form" role="search" action="{% url 'search_results' %}">
 
         <div class="input-group">
-          <input type="text" class="form-control" placeholder="Search Project" name="project">
+          <input type="text" class="form-control mt-2" placeholder="Search Project" name="project">
           <div class="input-group-btn">
             <button class="btn btn-default" type="submit">Search</button>
           </div>
@@ -50,6 +39,20 @@
 
       </form>
     </div>
+    <ul class="navbar-nav" style="background-color: black;">
+      <li class="nav-item avatar dropdown" >
+        <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-55" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          <img src="{{user.profiles.profile_pic.url}}" class="rounded-circle z-depth-0 img-fluid"
+            alt="avatar image" width="40px" height="30px">
+        </a>
+        <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary "
+          aria-labelledby="navbarDropdownMenuLink-55" style="color: black;">
+          <a class="nav-item nav-link dropdown-item" href="{% url 'profile' %}">Profile</a>
+          <a class="nav-item nav-link dropdown-item" href="{% url 'logout' %}">Logout</a>
+        </div>
+      </li>
+    </ul>
       {% else %}
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">

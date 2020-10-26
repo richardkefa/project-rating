@@ -4,6 +4,8 @@ from .models import Projects,Ratings
 from django.views.generic import ListView,CreateView,UpdateView,DetailView,DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin,UserPassesTestMixin
 from .forms import RatingsForm
+from cloudinary.forms import cl_init_js_callbacks      
+
 
 class PostListView(ListView):
   model = Projects
@@ -65,7 +67,7 @@ def search_results(request):
 def Rating(request,pk):
   project = Projects.objects.get(pk=pk)
   user = request.user
-  ratings = Rating.objects.get(pk=pk)
+  ratings = Ratings.objects.filter(pk=pk)
   
   if request.method =='POST':
     form = RatingsForm(request.POST)

@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% load crispy_forms_tags %}
 {% block content %}
+{% load cloudinary %}
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6">
       <div class="content-section">
         <div class="media card">
-          <img class="rounded-circle account-img img-fluid" src="{{ user.profiles.profile_pic.url }}" width="150px">
+          <img class=" account-img img-fluid" src="{{ user.profiles.profile_pic.url }}" width="150px">
           <div class="media-body ml-4">
             <h2 class="account-heading">{{ user.username }}</h2>
             <p class="text-secondary">{{ user.email }}</p>

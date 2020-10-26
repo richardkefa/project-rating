@@ -16,9 +16,9 @@
   {% if projects %}
   {% for project in projects %}
 
-  <div class="col-md-6">
+  <div class="col-md-3">
   <!-- Card Light -->
-  <div class="card">
+  <div class="card" id="project_card">
   
    <!-- Card image -->
    <div class="view overlay">
@@ -42,8 +42,8 @@
      <!-- Text -->
      <p class="card-text">{{project.description}}</p>
      <!-- Link -->
-     <a href="{% url 'project_detail' project.pk %}" class="black-text d-flex justify-content-end">
-       <h5>Project Details<i class="fas fa-angle-double-right"></i></h5>
+     <a href="{% url 'project_detail' project.pk %}" class="white-text justify-content-end btn btn-default">
+       Project Details
      </a>
   
    </div>
