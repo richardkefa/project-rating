@@ -62,3 +62,20 @@ def search_results(request):
     return render(request, 'project/search.html',{"message":message}) 
   
   
+def Rating(request,pk):
+  project = Projects.objects.get(pk=pk)
+  user = request.user
+  ratings = Rating.objects.get(pk=pk)
+  
+  if request.method =='POST':
+    form = RatingsForm(request.POST)
+    if form.is_valid():
+      rate = form.save(commit=False)
+      rate.user = user
+      rate.project = project
+      rate.save()
+      return render(request,'project/project_detail.html',{'ratings':ratings})
+  else:
+    form = RatingsForm()
+  return render(request,'project/rating.html',{'project':project,'user':user,'form':form})
+      
