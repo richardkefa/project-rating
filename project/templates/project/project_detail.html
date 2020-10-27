@@ -31,6 +31,8 @@
             class="white-text justify-content-end btn btn-default">Rate</a>
         {%if project.user == user %}
         <a class="btn-danger btn-sm mt-1 mb-1" href="{% url 'project_delete' project.pk %}">Delete Post</a>
+        <a class="btn-default btn-sm mt-1 mb-1" href="{% url 'project_update' project.pk %}">Update Post</a>
+
           <!-- Link -->
           
         {% endif %}

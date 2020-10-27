@@ -7,7 +7,7 @@ from .forms import RatingsForm
 from cloudinary.forms import cl_init_js_callbacks      
 
 
-class PostListView(ListView):
+class PostListView(LoginRequiredMixin,ListView):
   model = Projects
   template_name = 'project/home.html'
   context_object_name = 'projects'
