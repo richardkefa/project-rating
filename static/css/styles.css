@@ -18,3 +18,10 @@ a:hover{
   background-color: white;
   color: black;
 }
+
+#auth{
+  background-image: url('https://bit.ly/3ebDzUt');
+  background-position: center;
+  background-attachment: fixed;
+  background-size: cover;
+}
