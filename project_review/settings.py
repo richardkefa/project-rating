@@ -166,7 +166,7 @@ LOGIN_URL = 'login'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
-cloudinary.config('CLOUDINARY_CONFIG')
+cloudinary.config('cloud_name','api_key','api_secret')
 
 # Configure Django App for Heroku.
 django_heroku.settings(locals())
