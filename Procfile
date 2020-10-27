@@ -1,1 +1,1 @@
-web: gunicorn instagram.wsgi --log-file -
+web: gunicorn project-rating254.wsgi --log-file -
